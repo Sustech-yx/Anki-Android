@@ -695,6 +695,9 @@ public class Decks extends DeckManager {
         }
         for(int i = 0; i < path.length - 1; i++) {
             String p = path[i];
+            if ("".equals(p)) {
+                p = "blank";
+            }
             if (TextUtils.isEmpty(s)) {
                 s += p;
             } else {
