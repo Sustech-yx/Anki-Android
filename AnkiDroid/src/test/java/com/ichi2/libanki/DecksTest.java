@@ -48,6 +48,7 @@ public class DecksTest extends RobolectricTest {
             "scxipjiyozczaaczoawo",
             "cmxieunwoogyxsctnjmv::abcdefgh::ZYXW",
             "cmxieunwoogyxsctnjmv::INSBGDS",
+            "::foobar",
     };
     @Test
     public void ensureDeckList() {
