@@ -110,12 +110,17 @@ public class SchedV2Test extends RobolectricTest {
         DeckDueTreeNode c = new DeckDueTreeNode(col, "cmxieunwoogyxsctnjmv", 1596783600440L, 0, 0, 0);
         DeckDueTreeNode defaul = new DeckDueTreeNode(col, "Default", 1, 0, 0, 0);
         DeckDueTreeNode s = new DeckDueTreeNode(col, "scxipjiyozczaaczoawo", 1596783600420L, 0, 0, 0);
+        DeckDueTreeNode f = new DeckDueTreeNode(col, "blank::foobar", 1596783600540L, 0, 0, 0);
+        DeckDueTreeNode b = new DeckDueTreeNode(col, "blank", 1596783600520L, 0, 0, 0);
 
 
         TreeNode<DeckDueTreeNode> cazNode = new TreeNode<>(caz);
         TreeNode<DeckDueTreeNode> caNode = new TreeNode<>(ca);
         TreeNode<DeckDueTreeNode> ciNode = new TreeNode<>(ci);
         TreeNode<DeckDueTreeNode> cNode = new TreeNode<>((c));
+        TreeNode<DeckDueTreeNode> fNode = new TreeNode<>(f);
+        TreeNode<DeckDueTreeNode> bNode = new TreeNode<>(b);
+
 
         // add "caz" to "ca"
         caNode.getChildren().add(cazNode);
@@ -129,9 +134,13 @@ public class SchedV2Test extends RobolectricTest {
         cChildren.add(ciNode.getValue());
         cNode.getValue().processChildren(cChildren, addRev);
 
+        // add "f" to "b"
+        bNode.getChildren().add(fNode);
+
         expected.add(cNode);
         expected.add(new TreeNode(defaul));
         expected.add(new TreeNode(s));
+        expected.add(bNode);
 
         return expected;
     }
