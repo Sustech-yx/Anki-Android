@@ -126,7 +126,7 @@ class TagsDialog : AnalyticsDialogFragment {
 
     private val tagsDialogListener: TagsDialogListener
         get() = mListener
-            ?: TagsDialogListener.createFragmentResultSender(parentFragmentManager)
+            ?: TagsDialogListener.createFragmentResultSender(parentFragmentManager)!!
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         @SuppressLint("InflateParams") val tagsDialogView = LayoutInflater.from(activity).inflate(R.layout.tags_dialog, null, false)
@@ -262,6 +262,7 @@ class TagsDialog : AnalyticsDialogFragment {
             mTags!!.check(tag)
             mTagsArrayAdapter!!.sortData()
             mTagsArrayAdapter!!.notifyDataSetChanged()
+            mTagsArrayAdapter!!.filter.refresh()
             // Show a snackbar to let the user know the tag was added successfully
             showSnackbar(
                 requireActivity(), feedbackText, false, -1, null,
