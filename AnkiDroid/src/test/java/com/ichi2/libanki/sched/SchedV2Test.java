@@ -137,6 +137,10 @@ public class SchedV2Test extends RobolectricTest {
         // add "f" to "b"
         bNode.getChildren().add(fNode);
 
+        // add "f" to "b"
+        bNode.getChildren().add(fNode);
+
+        expected.add(bNode);
         expected.add(cNode);
         expected.add(new TreeNode(defaul));
         expected.add(new TreeNode(s));
